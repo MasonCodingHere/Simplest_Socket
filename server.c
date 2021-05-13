@@ -4,24 +4,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 
 const char* server_ip = "127.0.0.1";
 const uint16_t SERVER_PORT = 2021;
 const int QUEUE = 1024;
 const int BUFFER_SIZE = 1024;
-
-char* string_to_upper(char* str_orig){
-	char* str_new;
-	str_new = (char*) malloc(sizeof(char)*BUFFER_SIZE);
-	int i;
-	for(i = 0; str_orig[i] != '\0'; ++i){
-		if('a' <= str_orig[i] && str_orig[i] <= 'z')
-			str_new[i] = str_orig[i] - 32;
-		else
-			str_new[i] = str_orig[i];
-	}
-	return str_new;
-}
 
 int main(){
 	//定义服务端套接字地址结构并赋值
@@ -68,14 +56,15 @@ int main(){
 		if(strcmp(recvbuf, "Q\n") == 0)
 			break;
 		fputs(recvbuf, stdout);
-	//	sendbuf = string_to_upper(recvbuf);
-		int i;
-		for(i = 0; i < strlen(recvbuf); ++i){
+	
+		//将客户端输入的字符串转为大写
+		for(int i = 0; i < strlen(recvbuf); ++i){
 			if(islower(recvbuf[i]))
 				sendbuf[i] = toupper(recvbuf[i]);
 			else
 				sendbuf[i] = recvbuf[i];
 		}
+
 		send(conn_fd, sendbuf, strlen(sendbuf), 0);
 		
 	}
