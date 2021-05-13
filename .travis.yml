@@ -1,0 +1,9 @@
+language: c
+complier:
+    - gcc
+os:
+    - linux
+install:
+    - sudo apt-get install cmake
+script:
+    - ./build.sh
