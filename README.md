@@ -11,7 +11,7 @@
 ## Environment
 
 - OS：CentOS 7.5
-- Compiler：g++ 4.8
+- Compiler：gcc 4.8
 - CMake：version 3.19.6
 - Make：GNU Make 3.82
 - Shell：GNU bash, version 4.2.46
