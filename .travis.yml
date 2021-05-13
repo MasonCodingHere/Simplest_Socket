@@ -1,5 +1,6 @@
 language: c
-complier:
+dist: trusty
+compiler:
     - gcc
 os:
     - linux
