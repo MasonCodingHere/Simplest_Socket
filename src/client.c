@@ -35,10 +35,8 @@ int main(){
 	char recvbuf[BUFFER_SIZE];
 	while(fgets(sendbuf, sizeof(sendbuf), stdin)){ //从stdin读入待传输数据至sendbuf
 		send(client_fd, sendbuf, strlen(sendbuf), 0); //将sendbuf中的数据通过client_fd套接字传输
-		
 		if(strcmp(sendbuf, "Q\n") == 0) //输入Q表示退出
 			break;
-		//send(client_fd, sendbuf, strlen(sendbuf), 0); //将sendbuf中的数据通过client_fd套接字传输
 		recv(client_fd, recvbuf, sizeof(recvbuf), 0); //从client_fd套接字接收数据，保存至recvbuf
 		fputs(recvbuf, stdout);//将recvbuf中的数据输出至stdout
 		memset(sendbuf, 0, sizeof(sendbuf));//将sendbuf的内存值置0
