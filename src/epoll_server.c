@@ -62,6 +62,10 @@ int main(){
     //定义epoll_event结构体数组，作为epoll_wait的第二个参数，用于存储已就绪的文件描述符的信息
     struct epoll_event evs[1024];
     int size = sizeof(evs) / sizeof(struct epoll_event);
+    //用于保存客户端信息
+    struct sockaddr_in client_sockaddr;
+    memset(&client_sockaddr, 0, sizeof(client_sockaddr));
+    socklen_t client_socklen = sizeof(client_sockaddr);
 
     while(1){
         int num = epoll_wait(epfd, evs, size, -1);
@@ -70,7 +74,7 @@ int main(){
             if(curr_fd == listen_fd){
                 //当前就绪套接字是监听套接字，则为其创建连接
                 //接受连接请求，创建 已连接套接字描述符
-                int conn_fd = accept(curr_fd, NULL, NULL);
+                int conn_fd = accept(curr_fd, (struct sockaddr*) &client_sockaddr, &client_socklen);
 	            if(conn_fd < 0){
 		            perror("accept");
 		            exit(1);
@@ -92,7 +96,13 @@ int main(){
 		
 		        recv(curr_fd, recvbuf, sizeof(recvbuf), 0); //从curr_fd套接字接收数据，保存至recvbuf
 		        if(strcmp(recvbuf, "Q\n") == 0){ //如果收到的数据是Q，表示退出
-                    printf("这个客户端断开了连接");
+                    int client_ip = client_sockaddr.sin_addr.s_addr;
+                    printf("客户端(IP:Port=%d.%d.%d.%d:%d)断开了连接\n",
+                          client_ip & 255,
+                          (client_ip>>8) & 255,
+                          (client_ip>>16) & 255,
+                          (client_ip>>24) & 255,
+                          ntohs(client_sockaddr.sin_port));
                     epoll_ctl(epfd, EPOLL_CTL_DEL, curr_fd, NULL);
 			        close(curr_fd);
                 }
