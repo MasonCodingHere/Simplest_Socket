@@ -78,6 +78,14 @@ int main(){
 		            perror("accept");
 		            exit(1);
 	            }
+                int client_ip = client_sockaddr.sin_addr.s_addr;
+                printf("客户端(IP:Port=%d.%d.%d.%d:%d)已连接\n",
+                      client_ip & 255,
+                      (client_ip>>8) & 255,
+                      (client_ip>>16) & 255,
+                      (client_ip>>24) & 255,
+                      ntohs(client_sockaddr.sin_port));
+
                 // 将conn_fd添加到epoll中
                 ev.events = EPOLLIN;
                 ev.data.fd = conn_fd;
