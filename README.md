@@ -35,11 +35,13 @@ cd Simplest_Socket
 
 ```shell
 cd bin
-./server
+./server 或 ./epoll_server
 ./client
 ```
 
 > 开启两个shell，分别运行server和client。
+> 注：epoll_server还存在一些问题：
+> - 断开连接时提示的IP:Port是不对的。
 
 ### communication
 
