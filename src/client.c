@@ -6,7 +6,7 @@
 #include <stdio.h> //fgets函数、fputs函数、perror函数头文件
 
 const int BUFFER_SIZE = 1024; //定义缓冲区大小
-const char* server_ip = "127.0.0.1"; //服务端IP地址
+const char* server_ip = "121.5.108.67"; //服务端IP地址
 const uint16_t SERVER_PORT = 2021; //服务端监听端口号
 
 int main(){

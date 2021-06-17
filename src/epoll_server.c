@@ -7,7 +7,7 @@
 #include <ctype.h> //toupper函数头文件
 #include <sys/epoll.h> //epoll系列函数头文件
 
-const char* server_ip = "127.0.0.1"; //指定服务端IP地址
+const char* server_ip = "121.5.108.67"; //指定服务端IP地址
 const uint16_t SERVER_PORT = 2021;//指定监听端口号
 const int QUEUE = 1024; //用于listen函数第二个参数，指定内核应为相应套接字排队的最大连接数
 const int BUFFER_SIZE = 1024;//指定缓冲区大小
@@ -18,7 +18,8 @@ int main(){
 	memset(&server_sockaddr, 0, sizeof(server_sockaddr));
 	server_sockaddr.sin_family = AF_INET; //指定IPv4
 	server_sockaddr.sin_port = htons(SERVER_PORT);
-	inet_pton(AF_INET, server_ip, &server_sockaddr.sin_addr);
+    server_sockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	//inet_pton(AF_INET, server_ip, &server_sockaddr.sin_addr);
 
 	//创建一个监听套接字描述符
 	int listen_fd = socket(AF_INET, SOCK_STREAM, 0); //指定TCP协议
