@@ -1,7 +1,0 @@
-/home/xuxg/Simplest_Socket/build/CMakeFiles/rebuild_cache.dir
-/home/xuxg/Simplest_Socket/build/CMakeFiles/edit_cache.dir
-/home/xuxg/Simplest_Socket/build/src/CMakeFiles/rebuild_cache.dir
-/home/xuxg/Simplest_Socket/build/src/CMakeFiles/edit_cache.dir
-/home/xuxg/Simplest_Socket/build/src/CMakeFiles/epoll_server.dir
-/home/xuxg/Simplest_Socket/build/src/CMakeFiles/server.dir
-/home/xuxg/Simplest_Socket/build/src/CMakeFiles/client.dir
