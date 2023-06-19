@@ -6,8 +6,8 @@
 #include <stdio.h> //perror函数头文件
 #include <ctype.h> //toupper函数头文件
 
-const char* server_ip = "127.0.0.1"; //指定服务端IP地址
-const uint16_t SERVER_PORT = 2021;//指定监听端口号
+const char* server_ip = "192.168.0.4"; //指定服务端IP地址
+const uint16_t SERVER_PORT = 2023;//指定监听端口号
 const int QUEUE = 1024; //用于listen函数第二个参数，指定内核应为相应套接字排队的最大连接数
 const int BUFFER_SIZE = 1024;//指定缓冲区大小
 
