@@ -1,5 +1,5 @@
 # Simplest_Socket
-
+[![CI](https://github.com/MasonCodingHere/Simplest_Socket/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/MasonCodingHere/Simplest_Socket/actions/workflows/ci.yml)
 ## Introduction
 
 **Simplest_Socket**是学习UNIX网络编程的入门首选，是网络编程领域的“Hello World”。
