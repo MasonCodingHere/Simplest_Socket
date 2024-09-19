@@ -1,7 +1,5 @@
 # Simplest_Socket
 
-[![Build Status](https://travis-ci.com/mrxuxg/Simplest_Socket.svg?branch=master)](https://travis-ci.com/mrxuxg/Simplest_Socket)
-
 ## Introduction
 
 **Simplest_Socket**是学习UNIX网络编程的入门首选，是网络编程领域的“Hello World”。
