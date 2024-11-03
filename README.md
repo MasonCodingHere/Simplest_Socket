@@ -1,10 +1,12 @@
 # Simplest_Socket
-[![CI](https://github.com/MasonCodingHere/Simplest_Socket/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/MasonCodingHere/Simplest_Socket/actions/workflows/ci.yml)
+
+[![CI](https://github.com/bitdove/Simplest_Socket/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/bitdove/Simplest_Socket/actions/workflows/ci.yml)
+
 ## Introduction
 
-**Simplest_Socket**是学习UNIX网络编程的入门首选，是网络编程领域的“Hello World”。
+This project is the first choice for learning UNIX network programming, and is the "Hello World" in the field of network programming.
 
-本项目基于Linux socket，实现两主机之间最简单的网络通信。客户端发送小写字符给服务端，服务端将其转为大写并回送给客户端。
+This project is based on Linux socket and implements the simplest network communication between two hosts. The client sends lowercase characters to the server, and the server converts them to uppercase and sends them back to the client.
 
 ## Environment
 
@@ -16,20 +18,20 @@
 
 ## Usage
 
-### clone
+### Clone
 
 ```shell
-git clone https://github.com/mrxuxg/Simplest_Socket.git
+git clone https://github.com/bitdove/Simplest_Socket.git
 ```
 
-### build
+### Build
 
 ```shell
 cd Simplest_Socket
 ./build.sh
 ```
 
-### run
+### Run
 
 ```shell
 cd bin
@@ -37,17 +39,17 @@ cd bin
 ./client
 ```
 
-> 开启两个shell，分别运行server和client。
-> 注：epoll_server还存在一些问题：
-> - 断开连接时提示的IP:Port是不对的。
+> Open two shells and run the server and client respectively.
+> Note: epoll_server still has some problems:
+> - The IP:Port displayed when disconnecting is incorrect.
 
-### communication
+### Communication
 
-**客户端**
+**Client**
 
 ```
-输入英文字符串
-//Q表示退出
+Enter an English string
+//Q means quit
 ```
 
-可以看到服务端显示客户端输入的英文字符串，并且客户端显示对应字符串的大写形式。
+You can see that the server displays the English string entered by the client, and the client displays the uppercase form of the corresponding string.
